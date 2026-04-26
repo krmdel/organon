@@ -1,0 +1,19 @@
+flowchart TD
+    Req[user request] --> T1{"direct trigger<br/>match?"}
+    T1 -->|yes| Skill["invoke skill<br/>print routing notice"]
+    T1 -->|no| T2{"adjacent skill<br/>with different inputs?"}
+    T2 -->|yes| Skill
+    T2 -->|no| T3{"ToolUniverse catalog<br/>2200+ biomedical tools<br/>via sci-tools"}
+    T3 -->|match| Propose["propose matches<br/>user picks"]
+    Propose --> Skill
+    T3 -->|none| T4["web / MCP search<br/>cite sources"]
+    T4 --> T5{"still nothing?"}
+    T5 -->|yes| Build["last resort:<br/>meta-skill-creator<br/>scaffold new skill"]
+    T5 -->|no| Skill
+    Build --> Skill
+
+    style T1 fill:#e8f5e9
+    style T2 fill:#e8f5e9
+    style T3 fill:#fff3e0
+    style T4 fill:#fff3e0
+    style Build fill:#ffe0e0

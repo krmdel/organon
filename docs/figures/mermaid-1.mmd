@@ -1,0 +1,31 @@
+flowchart TB
+    subgraph Identity["Layer 1: Agent Identity (context/)"]
+        SOUL["SOUL.md<br/>behaviour contract"]
+        USER["USER.md<br/>user profile"]
+        MEM["memory/YYYY-MM-DD.md<br/>session blocks"]
+        LEARN["learnings.md<br/>feedback journal"]
+    end
+
+    subgraph Skills["Layer 2: Skills Pack (.claude/skills/)"]
+        SCI["sci-* science skills"]
+        VIZ["viz-* visual skills"]
+        TOOL["tool-* integrations"]
+        OPS["ops-* operations"]
+        META["meta-* framework"]
+    end
+
+    subgraph Research["Layer 3: Research Context (research_context/)"]
+        PROF[research-profile.md]
+        PREF[research-preferences.md]
+        ART["research_artifacts/"]
+    end
+
+    Identity -->|loaded at session start| Skills
+    Research -->|enhances output| Skills
+    Skills -->|writes deliverables| Out["projects/"]
+    Skills -->|logs feedback| LEARN
+    Skills -->|updates| MEM
+
+    style Identity fill:#e3f2fd
+    style Skills fill:#fff3e0
+    style Research fill:#e8f5e9

@@ -1,0 +1,44 @@
+{
+  "templates": [
+    {
+      "id": "default",
+      "name": "Default (custom tuned)",
+      "description": "Clean minimal base with navy + red accent palette. Left-aligned body text, serif-free, conservative whitespace.",
+      "best_for": "Conference talks, dense technical content, academic audiences",
+      "base_theme": "default",
+      "tags": ["academic", "technical", "minimal"]
+    },
+    {
+      "id": "gaia",
+      "name": "Gaia",
+      "description": "Warmer rounded aesthetic, centered lead slides, more whitespace. Built-in Marp theme with orange accents.",
+      "best_for": "Lectures, tutorials, educational content, lay audiences",
+      "base_theme": "gaia",
+      "tags": ["educational", "warm", "accessible"]
+    },
+    {
+      "id": "uncover",
+      "name": "Uncover",
+      "description": "Minimalist centered layout, larger type, maximum whitespace. One idea per slide.",
+      "best_for": "Keynotes, short talks, high-impact visual storytelling",
+      "base_theme": "uncover",
+      "tags": ["minimal", "keynote", "spacious"]
+    },
+    {
+      "id": "dark-academia",
+      "name": "Dark Academia",
+      "description": "Dark gradient background, cyan + amber accents, Inter + JetBrains Mono typefaces. High-contrast tech aesthetic.",
+      "best_for": "ML/AI/engineering audiences, code-heavy talks, evening/dim-room venues",
+      "base_theme": "default",
+      "tags": ["dark", "technical", "modern"]
+    },
+    {
+      "id": "mindmaps-boost",
+      "name": "Mindmaps Boost",
+      "description": "Warm radial gradient from cream to coral, bold left-aligned sans-serif headlines, editorial aesthetic. Inspired by SlidesGo's Mind Maps Boost theme.",
+      "best_for": "Design-forward talks, creative industry, lifestyle/narrative presentations, warm branded decks",
+      "base_theme": "default",
+      "tags": ["warm", "editorial", "creative", "gradient"]
+    }
+  ]
+}

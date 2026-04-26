@@ -1,0 +1,223 @@
+{
+  "version": "1.0.0",
+  "core_skills": ["sci-research-profile", "sci-data-analysis", "sci-writing"],
+  "skills": {
+    "meta-skill-creator": {
+      "category": "meta",
+      "description": "Create and scaffold new skills via natural language description",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "meta-wrap-up": {
+      "category": "meta",
+      "description": "Session wrap-up, memory finalisation, and learnings capture",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "ops-cron": {
+      "category": "operations",
+      "description": "Schedule recurring Claude Code tasks via cron dispatcher",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "ops-parallel-tempering-sa": {
+      "category": "operations",
+      "description": "Parallel-tempering simulated annealing for rugged multi-modal optimization landscapes",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "ops-ulp-polish": {
+      "category": "operations",
+      "description": "Discrete float64 ULP coordinate-descent polisher for high-precision numerical optimization",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-council": {
+      "category": "science",
+      "description": "Three-persona (Gauss / Erdős / Tao) parallel research fan-out with ranked synthesis and consensus flags",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-communication": {
+      "category": "science",
+      "description": "Science communication — blog posts, tutorials, lay summaries, social threads, newsletters, press releases",
+      "requires_services": [],
+      "dependencies": ["sci-literature-research", "tool-humanizer", "sci-writing"],
+      "mcp_servers": []
+    },
+    "sci-data-analysis": {
+      "category": "science",
+      "description": "Load and analyze local CSV/Excel data; statistical analysis; charts and plots",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-hypothesis": {
+      "category": "science",
+      "description": "Generate and test hypotheses from data patterns and literature; design experiments; power analysis",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-literature-research": {
+      "category": "science",
+      "description": "Search PubMed, arXiv, Semantic Scholar; summarize papers; export BibTeX citations",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-optimization": {
+      "category": "science",
+      "description": "Mathematical optimization toolkit — LP solving, column generation, cutting-plane methods, ULP float64 polishing, intelligent variable selection for competition math",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-optimization-recipes": {
+      "category": "science",
+      "description": "Named optimization recipes: Dinkelbach, k-climbing, Remez exchange, cross-resolution transfer, square parameterization and more",
+      "requires_services": [],
+      "dependencies": ["sci-optimization"],
+      "mcp_servers": []
+    },
+    "sci-research-mgmt": {
+      "category": "science",
+      "description": "Research notes, project tracking, paper alerts, experiment logs, pipeline scheduling",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-research-profile": {
+      "category": "science",
+      "description": "Build and update researcher profile — field, interests, journals, writing style, tools ecosystem",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-tools": {
+      "category": "science",
+      "description": "Browse and search biomedical tools via ToolUniverse; create research skills from natural language",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-trending-research": {
+      "category": "science",
+      "description": "Research trending topics in a scientific field across Reddit, X, web, and preprints",
+      "requires_services": ["OPENAI_API_KEY", "XAI_API_KEY"],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "sci-writing": {
+      "category": "science",
+      "description": "Draft and review scientific manuscripts — introduction, methods, results, discussion, abstract; format citations",
+      "requires_services": [],
+      "dependencies": ["sci-literature-research", "tool-humanizer"],
+      "mcp_servers": []
+    },
+    "tool-arena-attack-problem": {
+      "category": "utility",
+      "description": "Full autonomous Einstein Arena attack pipeline — recon, literature, hypothesis, attack loop, submit",
+      "requires_services": [],
+      "dependencies": ["tool-einstein-arena", "tool-arena-runner", "sci-optimization"],
+      "mcp_servers": []
+    },
+    "tool-arena-runner": {
+      "category": "utility",
+      "description": "Single entry point for Einstein Arena campaigns — polish, tri-verify, recon, fetch, register, submit, monitor",
+      "requires_services": [],
+      "dependencies": ["tool-einstein-arena", "ops-ulp-polish"],
+      "mcp_servers": []
+    },
+    "tool-einstein-arena": {
+      "category": "utility",
+      "description": "Einstein Arena CLI — register agents, fetch problems, analyze competitors, submit solutions across math competition problems",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-firecrawl-scraper": {
+      "category": "utility",
+      "description": "Web scraping with JS rendering and anti-bot bypass",
+      "requires_services": ["FIRECRAWL_API_KEY"],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-gdrive": {
+      "category": "utility",
+      "description": "Stage deliverables into Google Drive via desktop sync folder — zero OAuth, auto-categorises by extension",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-obsidian": {
+      "category": "utility",
+      "description": "Write markdown notes with YAML frontmatter and wikilinks into a local Obsidian vault — filesystem passthrough",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-paperclip": {
+      "category": "utility",
+      "description": "Search and read 8M+ biomedical full-text papers via the Paperclip CLI — bioRxiv, medRxiv, PMC",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-humanizer": {
+      "category": "utility",
+      "description": "De-AI text, remove robotic patterns, match natural writing style",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "tool-substack": {
+      "category": "utility",
+      "description": "Publish markdown blog posts to Substack as drafts — image upload, mermaid pre-render, ProseMirror conversion",
+      "requires_services": ["SUBSTACK_PUBLICATION_URL", "SUBSTACK_SESSION_TOKEN", "SUBSTACK_USER_ID"],
+      "dependencies": ["viz-diagram-code"],
+      "mcp_servers": []
+    },
+    "tool-youtube": {
+      "category": "utility",
+      "description": "YouTube channel listing and transcript extraction",
+      "requires_services": ["YOUTUBE_API_KEY"],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "viz-diagram-code": {
+      "category": "visual",
+      "description": "Generate Mermaid diagrams — flowcharts, sequence diagrams, architecture diagrams, mind maps",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "viz-excalidraw-diagram": {
+      "category": "visual",
+      "description": "Architecture and workflow diagrams via Excalidraw",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "viz-nano-banana": {
+      "category": "visual",
+      "description": "AI image generation via Gemini — scientific illustrations, schematics, infographics",
+      "requires_services": ["GEMINI_API_KEY"],
+      "dependencies": [],
+      "mcp_servers": []
+    },
+    "viz-presentation": {
+      "category": "visual",
+      "description": "Create slide decks and presentations — conference talks, lecture slides, research presentations",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    }
+  }
+}

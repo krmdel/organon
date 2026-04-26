@@ -1,0 +1,53 @@
+flowchart TB
+    Organon((Organon))
+
+    subgraph S["sci-* (9)"]
+        direction TB
+        S1[sci-research-profile]
+        S2[sci-data-analysis]
+        S3[sci-hypothesis]
+        S4[sci-literature-research]
+        S5[sci-writing]
+        S6[sci-communication]
+        S7[sci-research-mgmt]
+        S8[sci-trending-research]
+        S9[sci-tools]
+    end
+
+    subgraph V["viz-* (4)"]
+        V1[viz-diagram-code]
+        V2[viz-excalidraw-diagram]
+        V3[viz-nano-banana]
+        V4[viz-presentation]
+    end
+
+    subgraph T["tool-* (7)"]
+        T1[tool-paperclip]
+        T2[tool-firecrawl-scraper]
+        T3[tool-youtube]
+        T4[tool-humanizer]
+        T5[tool-gdrive]
+        T6[tool-obsidian]
+        T7[tool-substack]
+    end
+
+    subgraph O["ops-* (1)"]
+        O1[ops-cron]
+    end
+
+    subgraph M["meta-* (2)"]
+        M1[meta-skill-creator]
+        M2[meta-wrap-up]
+    end
+
+    Organon --> S
+    Organon --> V
+    Organon --> T
+    Organon --> O
+    Organon --> M
+
+    style S fill:#e8f5e9
+    style V fill:#e3f2fd
+    style T fill:#fff3e0
+    style O fill:#fce4ec
+    style M fill:#f3e5f5

@@ -1,0 +1,27 @@
+flowchart LR
+    Sess[session activity]
+    Mem["context/memory/<br/>date.md session blocks"]
+    Learn["context/learnings.md<br/>per-skill journal"]
+    Prof["research-profile.md<br/>Activity Log"]
+
+    Sess -->|incremental writes| Mem
+    Sess -->|after deliverable| Feed{"user<br/>feedback?"}
+    Feed -->|yes| Learn
+    Sess -->|at wrap-up| Evolve[profile-evolve.py]
+    Evolve --> Prof
+    Evolve --> KeyProp{"recurring topics<br/>across sessions?"}
+    KeyProp -->|yes| PropKey["propose new keywords<br/>user approves"]
+    PropKey --> Prof
+
+    Mem -->|scanned at wrap-up| Detect{"recurring manual<br/>workflow 3x+?"}
+    Detect -->|yes| Proposal["propose skillification<br/>via meta-skill-creator"]
+    Learn -->|next session start| Heartbeat["heartbeat loads<br/>last 5-10 entries"]
+
+    Proposal -->|user approves| Build[scaffold new skill]
+    Build --> Catalog[Skills Pack grows]
+
+    style Mem fill:#fff3e0
+    style Learn fill:#fff3e0
+    style Prof fill:#fff3e0
+    style Proposal fill:#ffe0e0
+    style Build fill:#e8f5e9

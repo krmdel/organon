@@ -1,0 +1,6 @@
+# Force Unix line endings for shell scripts (Windows Git converts LF→CRLF by default,
+# which breaks bash scripts and inline Python)
+*.sh text eol=lf
+
+# JSON must also stay LF (parsed by Python in scripts)
+*.json text eol=lf

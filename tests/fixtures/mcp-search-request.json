@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "search_papers",
+    "arguments": {
+      "query": "CRISPR gene editing",
+      "source": "all",
+      "max_results": 3
+    }
+  }
+}

@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create venv and install dependencies
+        run: |
+          uv venv .venv --python 3.10
+          source .venv/bin/activate
+          uv pip install pytest pyyaml numpy pandas scipy matplotlib scienceplots statsmodels seaborn plotly openpyxl requests
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run full test suite
+        run: |
+          source .venv/bin/activate
+          pytest tests/ -m "not network" -x --tb=short -q
+
+  sci-writing-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create venv and install dependencies
+        run: |
+          uv venv .venv --python 3.10
+          source .venv/bin/activate
+          uv pip install pytest requests
+
+      - name: Run sci-writing offline tests (no network)
+        run: |
+          source .venv/bin/activate
+          pytest .claude/skills/sci-writing/tests/ -m "not network" -x --tb=short -q
+
+  bib-sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create venv and install dependencies
+        run: |
+          uv venv .venv --python 3.10
+          source .venv/bin/activate
+          uv pip install requests
+
+      - name: Run bib integrity sweep
+        run: |
+          source .venv/bin/activate
+          python3 scripts/bib_sweep.py

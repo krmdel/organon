@@ -1,0 +1,21 @@
+flowchart LR
+    Start([session start]) --> H1["Heartbeat:<br/>load identity files"]
+    H1 --> H2["Load research context<br/>flag stale files 30d+"]
+    H2 --> H3["Scan skills + projects"]
+    H3 --> H4[Reconcile drift]
+    H4 --> H5["Run /lets-go<br/>recap or onboard"]
+    H5 --> Ready([ready for user])
+    Ready --> Req[user request]
+    Req --> Route{"match skill<br/>trigger?"}
+    Route -->|yes| Exec[execute skill]
+    Route -->|no| Cas[task routing cascade]
+    Exec --> Save["save deliverable<br/>+ open in IDE<br/>+ offer Drive push"]
+    Cas --> Exec
+    Save --> Feedback["collect feedback<br/>log to learnings.md"]
+    Feedback --> Req
+    Req -.->|"done, thanks"| Wrap["meta-wrap-up<br/>finalise memory<br/>propose new skills"]
+    Wrap --> End([commit and close])
+
+    style H1 fill:#e3f2fd
+    style H5 fill:#e3f2fd
+    style Wrap fill:#ffe0e0

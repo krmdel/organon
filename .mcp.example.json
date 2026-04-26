@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "paper-search": {
+      "command": "bash",
+      "args": ["scripts/with-env.sh", "node", "mcp-servers/paper-search/dist/index.js"],
+      "env": {}
+    },
+    "paperclip": {
+      "type": "http",
+      "url": "https://paperclip.gxl.ai/mcp"
+    },
+    "tooluniverse": {
+      "command": "uvx",
+      "args": ["tooluniverse"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

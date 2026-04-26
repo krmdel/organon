@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organon — An Agentic OS for Scientists</title>
+  <meta name="description" content="Organon is an agentic operating system for scientists, built on Claude Code. Personality, memory, and modular research skills for literature search, data analysis, hypothesis testing, and scientific writing." />
+  <meta name="author" content="Kerem Delikoyun" />
+  <meta property="og:title" content="Organon — An Agentic OS for Scientists" />
+  <meta property="og:description" content="A Claude Code framework that gives AI personality, memory, and scientific research skills." />
+  <meta property="og:image" content="assets/organon-hero.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="starfield" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <span class="nav-brand">Organon</span>
+    <div class="nav-links">
+      <a href="#demo">Demo</a>
+      <a href="#install">Install</a>
+      <a href="organon-whitepaper.md">Whitepaper</a>
+      <a href="https://github.com/krmdel/organon" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-art">
+      <img src="assets/organon-hero.png" alt="Aristotle holding a glowing book of stars — Organon hero illustration" />
+    </div>
+    <div class="hero-meta">
+      <h1 class="wordmark">Organon</h1>
+      <p class="tagline">An Agentic OS for Scientists, built on Claude Code.</p>
+      <p class="sub">Personality, persistent memory, and a skill pack that grows with you. Organon learns from every session, folds feedback into each skill, and can propose and scaffold brand-new skills when your workflow needs them.</p>
+      <div class="cta-row">
+        <a class="cta cta-primary" href="#install">Install</a>
+        <a class="cta cta-secondary" href="#demo">Watch the demo</a>
+      </div>
+      <p class="byline">Named after Aristotle's treatises on the tools of correct reasoning.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="demo" class="section">
+      <h2 class="section-title">A research day in one terminal</h2>
+      <p class="section-lede">Six of Organon's 20+ skills, composed as one continuous workflow. Each stage routes to the right skill automatically, reads your research profile, and writes feedback back to learnings so the next session is sharper. Need a capability that doesn't exist yet? Organon proposes a new skill and scaffolds it on the fly.</p>
+      <div class="demo-tabs" role="tablist" aria-label="Demo workflow stages">
+        <button class="demo-tab active" role="tab" data-script="literature" aria-selected="true">1. Literature</button>
+        <button class="demo-tab" role="tab" data-script="hypothesis" aria-selected="false">2. Hypothesis</button>
+        <button class="demo-tab" role="tab" data-script="analysis" aria-selected="false">3. Analysis</button>
+        <button class="demo-tab" role="tab" data-script="writing" aria-selected="false">4. Writing</button>
+        <button class="demo-tab" role="tab" data-script="figure" aria-selected="false">5. Figure</button>
+        <button class="demo-tab" role="tab" data-script="publish" aria-selected="false">6. Publish</button>
+      </div>
+      <div class="terminal-wrapper">
+        <div class="terminal" aria-label="Organon session replay" role="region">
+          <div class="term-chrome">
+            <span class="term-dot term-dot-red"></span>
+            <span class="term-dot term-dot-yellow"></span>
+            <span class="term-dot term-dot-green"></span>
+            <span class="term-title" id="term-title">claude · organon — literature</span>
+          </div>
+          <div class="term-body" id="term-body"></div>
+        </div>
+        <button class="replay-btn" id="replay-btn" aria-label="Replay demo">↻ Replay</button>
+      </div>
+      <p class="demo-caption">Scripted replays of representative Organon sessions. Paper metadata in tab 1 is real, pulled live via the federated search MCP. Stats, DOIs, and publish flows in later tabs are realistic but illustrative.</p>
+    </section>
+
+    <section id="overview" class="section">
+      <h2 class="section-title">Three layers, one research partner</h2>
+      <div class="pillars">
+        <article class="pillar">
+          <h3>Agent Identity</h3>
+          <p>A SOUL file that gives the agent a scientific voice, a USER profile that tracks who you are, and session memory that picks up yesterday's open threads automatically.</p>
+        </article>
+        <article class="pillar">
+          <h3>Composable Skills</h3>
+          <p>Twenty-plus skills for literature search, statistics, hypothesis generation, writing, figures, and science communication. Add, remove, or author your own — each ships with its own methodology.</p>
+        </article>
+        <article class="pillar">
+          <h3>Research Context</h3>
+          <p>A research profile distilled from your papers, ORCID, and tool ecosystem. Every skill reads it before running, so outputs are tailored to <em>your</em> field, statistics, and writing style.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="install" class="section">
+      <h2 class="section-title">Install</h2>
+      <p class="section-lede">One command. Handles prerequisites, Python environment, skill dependencies, MCP servers, and the cron dispatcher. Safe to re-run any time.</p>
+      <div class="code-block">
+        <pre><code id="install-code">git clone https://github.com/krmdel/organon.git
+cd organon
+bash scripts/install.sh
+claude</code></pre>
+        <button class="copy-btn" data-target="install-code" aria-label="Copy install command">Copy</button>
+      </div>
+      <p class="install-note">On first launch, Organon runs an interactive onboarding that reads papers you drop into <code>research_artifacts/</code> and builds your research profile.</p>
+    </section>
+
+    <section id="citation" class="section">
+      <h2 class="section-title">Citation</h2>
+      <p class="section-lede">If Organon helps your research, please cite it.</p>
+      <div class="code-block">
+        <pre><code id="bib-code">@software{organon2026,
+  author  = {Delikoyun, Kerem},
+  title   = {Organon: An Agentic OS for Scientists},
+  year    = {2026},
+  url     = {https://github.com/krmdel/organon},
+  note    = {Claude Code framework for literature search, data analysis,
+             hypothesis testing, and scientific writing}
+}</code></pre>
+        <button class="copy-btn" data-target="bib-code" aria-label="Copy BibTeX">Copy</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <a href="organon-whitepaper.md">Whitepaper</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/krmdel/organon">GitHub</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/krmdel/organon/blob/main/LICENSE">License</a>
+    </p>
+    <p class="imprint">Tools of correct reasoning — for scientists.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

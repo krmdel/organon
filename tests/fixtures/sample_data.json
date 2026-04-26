@@ -1,0 +1,22 @@
+[
+  {"id": 1, "group": "A", "value1": 9.5, "value2": 12.3, "category": "X", "missing_col": 5.1},
+  {"id": 2, "group": "A", "value1": 10.2, "value2": 13.1, "category": "Y", "missing_col": null},
+  {"id": 3, "group": "A", "value1": 8.8, "value2": 11.5, "category": "X", "missing_col": 4.8},
+  {"id": 4, "group": "A", "value1": 11.1, "value2": 14.2, "category": "Z", "missing_col": 6.2},
+  {"id": 5, "group": "A", "value1": 9.7, "value2": 12.8, "category": "Y", "missing_col": 5.5},
+  {"id": 6, "group": "A", "value1": 10.5, "value2": 13.6, "category": "X", "missing_col": null},
+  {"id": 7, "group": "A", "value1": 8.3, "value2": 11.0, "category": "Z", "missing_col": 4.2},
+  {"id": 8, "group": "A", "value1": 11.4, "value2": 14.5, "category": "Y", "missing_col": 6.8},
+  {"id": 9, "group": "A", "value1": 9.9, "value2": 12.9, "category": "X", "missing_col": 5.3},
+  {"id": 10, "group": "A", "value1": 10.8, "value2": 13.8, "category": "Z", "missing_col": 5.9},
+  {"id": 11, "group": "B", "value1": 14.2, "value2": 17.1, "category": "X", "missing_col": 7.8},
+  {"id": 12, "group": "B", "value1": 15.1, "value2": 18.0, "category": "Y", "missing_col": 8.2},
+  {"id": 13, "group": "B", "value1": 13.5, "value2": 16.4, "category": "Z", "missing_col": null},
+  {"id": 14, "group": "B", "value1": 16.0, "value2": 18.9, "category": "X", "missing_col": 9.1},
+  {"id": 15, "group": "B", "value1": 14.8, "value2": 17.7, "category": "Y", "missing_col": 8.5},
+  {"id": 16, "group": "B", "value1": 13.9, "value2": 16.8, "category": "Z", "missing_col": 7.5},
+  {"id": 17, "group": "B", "value1": 15.5, "value2": 18.4, "category": "X", "missing_col": 8.8},
+  {"id": 18, "group": "B", "value1": 14.1, "value2": 17.0, "category": "Y", "missing_col": 7.7},
+  {"id": 19, "group": "B", "value1": 16.3, "value2": 19.2, "category": "Z", "missing_col": 9.4},
+  {"id": 20, "group": "B", "value1": 15.0, "value2": 17.9, "category": "X", "missing_col": 8.3}
+]

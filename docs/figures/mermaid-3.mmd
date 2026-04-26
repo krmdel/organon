@@ -1,0 +1,17 @@
+flowchart LR
+    subgraph Skill["skill-name/"]
+        SKMD["SKILL.md<br/>YAML frontmatter + methodology<br/>≤200 lines"]
+        REFS["references/<br/>depth material<br/>one topic per file"]
+        SCR["scripts/<br/>executables<br/>setup.sh + ops.py"]
+        AST["assets/<br/>examples, templates"]
+    end
+
+    SKMD -.->|trigger match| Agent
+    SKMD -->|defines| OUT["output path:<br/>projects/category-name/"]
+    REFS -.->|loaded on demand| Agent
+    SCR -.->|invoked by| Agent
+    AST -.->|templates| OUT
+
+    style SKMD fill:#fff3e0
+    style REFS fill:#fafafa
+    style SCR fill:#fafafa
