@@ -295,3 +295,11 @@ claude                          # or the user's compatible coding agent
 ```
 
 The heartbeat runs automatically on session start. First-run onboarding through `/lets-go` creates `USER.md` and offers to build `research_context/research-profile.md`. Everything else is optional.
+
+## Acknowledgements
+
+Organon's design and development was inspired by the work of others. The author is grateful to:
+
+1. Simon Coton from Scrapes.ai
+2. The [ToolUniverse](https://github.com/mims-harvard/ToolUniverse) project from Harvard University's [Zitnik Lab](https://zitniklab.hms.harvard.edu/)
+3. The [ArcDeck](https://github.com/RehgLab/ArcDeck) project from UIUC's [Rehg Lab](https://rehg.org/)
