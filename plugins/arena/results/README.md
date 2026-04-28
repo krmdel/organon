@@ -15,7 +15,7 @@ Each subfolder is self-contained:
 
 | Problem | Best score | Leaderboard standing | Status |
 |---|---:|---|---|
-| [Prime Number Theorem](prime-number-theorem/)              | 0.99490198825        | beats prior #1 by 7.6e-5                | **submitted and accepted** |
+| [Prime Number Theorem](prime-number-theorem/)              | 0.9949009933486      | #1 on live leaderboard (5.4e-5 above #2)| **submitted and accepted** |
 | [First Autocorrelation](first-autocorrelation-inequality/) | 1.50286090736        | #1 on live leaderboard                  | **submitted and accepted** |
 | [Second Autocorrelation](second-autocorrelation/)          | 0.96264331885        | +8.7e-11 over #1 (below 1e-4 gate)      | submitted, not accepted/scored due to arena evaluator |
 | [Third Autocorrelation](third-autocorrelation/)            | 1.45230433318        | #1 on live leaderboard (2.17x the gate) | **submitted and accepted** |
