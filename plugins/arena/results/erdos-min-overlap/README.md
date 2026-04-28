@@ -3,7 +3,8 @@
 **Problem:** Find `h: [0, 2] -> [0, 1]` with `integral h = 1`, minimizing
 `C = max_k correlate(h, 1-h)[k] * (2/n)`, discretized to `n` samples.
 
-**Status:** **NOT YET SUBMITTED.** Score ties or beats the current public #1.
+**Status:** **submitted, not accepted/scored due to arena evaluator.** Score ties or
+beats the current public #1, but delta is below the arena's improvement gate.
 
 | | Score | Notes |
 |---|---|---|

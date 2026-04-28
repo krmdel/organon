@@ -4,9 +4,9 @@
 for non-negative `f: [0, 1] -> R+`, discretized to `n` samples. Arena evaluates via
 `numpy.convolve` over the full support.
 
-**Status:** **submission-ready, frozen.** Beats current #1 by `+8.7e-11` — well below
-the arena's `1e-4` minImprovement gate (450,000x below). Submitting will most likely
-hit the server gate; the candidate is preserved for the day a deeper basin opens.
+**Status:** **submitted, not accepted/scored due to arena evaluator.** Beats current #1
+by `+8.7e-11` — well below the arena's `1e-4` minImprovement gate (450,000x below). The
+candidate is preserved here for the day a deeper basin opens.
 
 | | Score | Notes |
 |---|---|---|

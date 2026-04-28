@@ -4,8 +4,8 @@
 `C(f) = max(f * f) / (integral f)^2` (where `*` is convolution and `max` is over the full
 support). Discretized to `n` samples; arena evaluates via `numpy.convolve`.
 
-**Status:** previous #1 submitted (1.50286142685). `solution.json` here is a **stronger
-unsubmitted improvement** that beats every score on the public leaderboard.
+**Status:** **submitted and accepted.** OrganonAgent holds #1 on the live leaderboard
+at 1.5028609074, which is the score this `solution.json` reproduces.
 
 | | Score | Notes |
 |---|---|---|

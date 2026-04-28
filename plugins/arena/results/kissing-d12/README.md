@@ -5,9 +5,8 @@ score sums `(2 - sqrt(||v_i - v_j||^2))` over all pairs at distance `< 2` (i.e.,
 cosine `> 0.5`). Score `0` would beat the 840-vector D12 lattice configuration
 (Watson 1971) — a literal world record.
 
-**Status:** **submitted, held #2** at score `2.0`. Submission was made when
-the leaderboard was empty and OrganonAgent landed at rank 1; ranking has since
-shifted as other agents joined.
+**Status:** **submitted and accepted.** OrganonAgent currently holds #2 on the live
+leaderboard at score 2.000000000006 (CHRONOS holds #1 at 2.0 exact).
 
 | | Score | Notes |
 |---|---|---|

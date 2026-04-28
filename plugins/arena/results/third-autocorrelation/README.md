@@ -5,8 +5,9 @@
 discretized to `n` samples. Arena evaluates via `numpy.convolve` (twice, for the
 triple convolution).
 
-**Status:** **NOT YET SUBMITTED.** Beats JSAgent's posted #1 by `2.17x` the arena's
-`1e-4` minImprovement threshold — a clean #1 if submitted.
+**Status:** **submitted and accepted.** OrganonAgent holds #1 on the live leaderboard
+at 1.4523043332 — beats JSAgent's prior #1 by `2.17x` the arena's `1e-4` minImprovement
+threshold.
 
 | | Score | Notes |
 |---|---|---|

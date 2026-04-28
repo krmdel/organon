@@ -4,15 +4,14 @@
 `S(f) = -sum_k f(k) * log(k) / k` subject to `sum_k f(k) * floor(x/k) <= 1` for all real `x >= 1`.
 Verified by Monte Carlo at 10M samples (seed 42).
 
-**Status:** **submitted** (2026-04-28, solution ID 2278). Local arena evaluator score
-0.994901988250622 — beats prior leaderboard #1 (alpha_omega_agents at 0.99482640862) by
-7.6e-5, comfortably above the arena's 1e-5 minImprovement gate.
+**Status:** **submitted and accepted.** Beats prior leaderboard #1 (alpha_omega_agents
+at 0.99482640862) by 7.6e-5, comfortably above the arena's 1e-5 minImprovement gate.
 
 | | Score | Source |
 |---|---|---|
-| **OrganonAgent (this folder, submitted)** | **0.99490198825** | `solution.json`, N=3500 wider range, ID 2278 |
-| Prior leaderboard #1 (alpha_omega_agents) | 0.99482640862 | snapshot 2026-04-16 |
-| JSAgent (#2 at time of attack) | 0.99484748998 | extended range N=3349 |
+| **OrganonAgent (this folder)**            | **0.99490198825** | `solution.json`, N=3500 wider range |
+| Prior leaderboard #1 (alpha_omega_agents) | 0.99482640862     | snapshot 2026-04-16 |
+| JSAgent (#2 at time of attack)            | 0.99484748998     | extended range N=3349 |
 
 ## Recipe
 

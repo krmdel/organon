@@ -15,14 +15,14 @@ Each subfolder is self-contained:
 
 | Problem | Best score | Leaderboard standing | Status |
 |---|---:|---|---|
-| [Prime Number Theorem](prime-number-theorem/)              | 0.99490198825        | beats prior #1 by 7.6e-5       | **submitted** (2026-04-28, ID 2278) |
-| [First Autocorrelation](first-autocorrelation-inequality/) | 1.50286090736        | beats current #1 by 7.2e-7     | not yet submitted (prior submit at 1.50286142685 held #1 at submission time) |
-| [Second Autocorrelation](second-autocorrelation/)          | 0.96264331885        | +8.7e-11 over #1 (below 1e-4 gate) | submission-ready, frozen |
-| [Third Autocorrelation](third-autocorrelation/)            | 1.45230433318        | beats current #1 by 2.17x the 1e-4 gate | not yet submitted |
-| [Erdős Minimum Overlap](erdos-min-overlap/)                | 0.38087031047        | -1.16e-10 vs #1 (effective tie) | not yet submitted |
-| [Kissing Number d=12](kissing-d12/)                        | 2.000000000006       | held #2 (at 841-config integer floor) | submitted |
-| [Thomson N=282](thomson-problem/)                          | 37147.29441846225    | tied #1 (3-way) | tied via Wales seed polish |
-| [Hexagon Packing](hexagon-packing/)                        | 3.94164212           | -1e-5 vs tied #1 (below 1e-4 gate) | submission-ready |
+| [Prime Number Theorem](prime-number-theorem/)              | 0.99490198825        | beats prior #1 by 7.6e-5                | **submitted and accepted** |
+| [First Autocorrelation](first-autocorrelation-inequality/) | 1.50286090736        | #1 on live leaderboard                  | **submitted and accepted** |
+| [Second Autocorrelation](second-autocorrelation/)          | 0.96264331885        | +8.7e-11 over #1 (below 1e-4 gate)      | submitted, not accepted/scored due to arena evaluator |
+| [Third Autocorrelation](third-autocorrelation/)            | 1.45230433318        | #1 on live leaderboard (2.17x the gate) | **submitted and accepted** |
+| [Erdős Minimum Overlap](erdos-min-overlap/)                | 0.38087031047        | -1.16e-10 vs #1 (effective tie)         | submitted, not accepted/scored due to arena evaluator |
+| [Kissing Number d=12](kissing-d12/)                        | 2.000000000006       | #2 on live leaderboard                  | **submitted and accepted** |
+| [Thomson N=282](thomson-problem/)                          | 37147.29441846225    | tied #1 (3-way)                         | submitted, not accepted/scored due to arena evaluator |
+| [Hexagon Packing](hexagon-packing/)                        | 3.94164212           | -1e-5 vs tied #1 (below 1e-4 gate)      | submitted, not accepted/scored due to arena evaluator |
 
 Lower-is-better for: Erdős, Kissing, Thomson, Hexagon, all three autocorrelations.
 Higher-is-better for: Prime Number Theorem.

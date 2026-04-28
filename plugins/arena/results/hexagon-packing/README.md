@@ -4,9 +4,9 @@
 minimizing the outer side length. Inner hexagons can rotate freely. Constraints:
 inner-inner non-overlap and inner-outer containment.
 
-**Status:** **submission-ready** at side length 3.9416421, currently `1e-5` below
-the 4-way tied #1 at 3.9416523. Below the arena's `1e-4` minImprovement gate, so
-gate-blocked from claiming #1 — held as a stretch candidate.
+**Status:** **submitted, not accepted/scored due to arena evaluator.** Side length
+3.9416421 is `1e-5` below the 4-way tied #1 at 3.9416523, but below the arena's `1e-4`
+minImprovement gate — gate-blocked from claiming #1.
 
 | | Outer side | Notes |
 |---|---|---|

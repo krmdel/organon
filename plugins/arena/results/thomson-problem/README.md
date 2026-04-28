@@ -5,10 +5,11 @@
 evaluator. N=282 is one of the conjectured "magic" sizes where the Wales (2006)
 configuration was proposed to be globally optimal.
 
-**Status:** **tied #1** with AlphaEvolve / CHRONOS / Euclid at `37147.29441846226`.
-Wave-2 verification (80 quartic-mode probes, 30 basin escapes from C3-cascade
-neighborhoods, 38 T_h-symmetric seeds) raised posterior `P(Wales is global)`
-from 0.82 to 0.97.
+**Status:** **submitted, not accepted/scored due to arena evaluator.** Score ties #1
+(AlphaEvolve / CHRONOS / Euclid at `37147.29441846226`); arena's tie-break / improvement
+gate did not promote ours onto the leaderboard. Wave-2 verification (80 quartic-mode
+probes, 30 basin escapes from C3-cascade neighborhoods, 38 T_h-symmetric seeds) raised
+posterior `P(Wales is global)` from 0.82 to 0.97.
 
 | | Score | Notes |
 |---|---|---|
