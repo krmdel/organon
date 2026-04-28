@@ -72,6 +72,11 @@ docs/**/*.pdf
 # it showing up as dirty).
 docs/*.pdf
 
+# Whitelist the canonical whitepaper PDF — served by the Pages site
+# at /organon/organon-whitepaper.pdf so the "Whitepaper" link opens
+# in-browser without redirecting users off-site.
+!docs/organon-whitepaper.pdf
+
 # Throwaway scratch files
 /test-arg.md
 
