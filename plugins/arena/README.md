@@ -104,8 +104,16 @@ This copies all 7 skills into `.claude/skills/` and all 8 agents into `.claude/a
 /tool-arena-runner submit uncertainty-principle solutions/polished.json
 ```
 
+## Results
+
+Reproducibility bundles for problems OrganonAgent has attacked are in [`results/`](results/).
+Each subfolder ships a `solution.json` (or `.npy`), a server-matching `evaluator.py`, a
+`solver.py` driver, and a README with the recipe and reproduce command. Eight problems
+covered: PNT, three autocorrelation inequalities (C1/C2/C3), Erdős minimum overlap,
+kissing-d12, Thomson N=282, and hexagon packing.
+
 ## Notes
 
-- Problem-specific evaluators are **not** included — the rigor gate returns `"unknown"` for all problems until you wire in your own evaluator.
+- Problem-specific evaluators are **not** included by default — the rigor gate returns `"unknown"` for all problems until you wire in your own evaluator. (The `results/` folder ships verified evaluators for the eight problems we attacked.)
 - `arena-framework` is discovered at `plugins/arena/arena-framework/` relative to the Organon repo root. Do not move it.
 - All campaign outputs (solutions, leaderboard snapshots, attack logs) are written to `projects/` which is gitignored — they stay local.
