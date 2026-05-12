@@ -80,7 +80,7 @@
       <div class="dashboard-wrapper">
         <img class="dashboard-gif" src="assets/dashboard-demo.gif" alt="Organon Dashboard walkthrough — literature search, three-persona hypothesis council, data analysis with stats and plots, figures with annotation, and a three-pane manuscript editor." />
       </div>
-      <p class="demo-caption">A single research thread carried across five routes: <code>/lit</code> federated literature search · <code>/hypothesis</code> three-persona council fanout · <code>/data</code> CSV ingest with stat picker and date-grouped plot history · <code>/figures</code> Gemini generate → mask edit → lock + auto-caption · <code>/draft</code> three-pane manuscript editor with per-section generate, citation pipeline, and KaTeX. Start with <code>npm run dev</code> in <code>projects/briefs/organon-dashboard</code>.</p>
+      <p class="demo-caption">A single research thread walked through every route: federated literature search, the three-persona hypothesis council, CSV analysis with a stat picker, figure generation with mask edits, and the manuscript editor. Same skills as the terminal, surfaced as a visual workspace.</p>
     </section>
 
     <section id="overview" class="section">
@@ -112,6 +112,14 @@ claude</code></pre>
         <button class="copy-btn" data-target="install-code" aria-label="Copy install command">Copy</button>
       </div>
       <p class="install-note">On first launch, Organon runs an interactive onboarding that reads papers you drop into <code>research_artifacts/</code> and builds your research profile.</p>
+      <p class="install-note">Want the GUI dashboard too? After install, launch it with:</p>
+      <div class="code-block">
+        <pre><code id="dashboard-code">cd projects/briefs/organon-dashboard
+npm install
+npm run dev</code></pre>
+        <button class="copy-btn" data-target="dashboard-code" aria-label="Copy dashboard launch command">Copy</button>
+      </div>
+      <p class="install-note">Open <code>http://localhost:8769</code> for the visual workspace. Same skills, same memory, same research profile — just a UI on top.</p>
     </section>
 
     <section id="citation" class="section">
