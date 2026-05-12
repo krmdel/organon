@@ -61,6 +61,8 @@ When it finishes, open Claude Code:
 claude
 ```
 
+> On a fresh clone, Claude Code asks you to approve this project's hooks the first time. Say **yes** — the `SessionStart` and `UserPromptSubmit` hooks are how `/lets-go` auto-triggers. If you dismiss the prompt, onboarding will not fire and you'll be working against an empty research profile.
+
 Your first session triggers `/lets-go`, an interactive onboarding that builds your research profile from the ground up:
 
 1. **Drop your materials.** Drag papers, manuscripts, notebooks, datasets, or reference lists into the `research_artifacts/` folder (or paste file paths directly into chat). Organon reads each file, classifies it automatically (paper vs. manuscript vs. notebook vs. dataset), and extracts structured data: your methods, tools, fields, co-authors, and key findings.

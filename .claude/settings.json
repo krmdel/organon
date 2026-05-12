@@ -54,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '%s\\n' '[heartbeat] Run the CLAUDE.md heartbeat now: load context/SOUL.md + USER.md + latest context/memory/*.md + last 5-10 learnings.md entries + research_context/*.md, then invoke /lets-go.'"
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks_info/lets_go_gate.py\" SessionStart"
           }
         ]
       }
@@ -62,6 +62,10 @@
     "UserPromptSubmit": [
       {
         "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks_info/lets_go_gate.py\" UserPromptSubmit"
+          },
           {
             "type": "command",
             "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks_info/ccnotify.py\" UserPromptSubmit"
