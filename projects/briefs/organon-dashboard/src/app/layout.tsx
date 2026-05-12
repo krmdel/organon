@@ -26,6 +26,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         {/* Phase 65 (v2.2) — M4: pre-hydration density script. Reads
