@@ -24,6 +24,7 @@
     <span class="nav-brand">Organon</span>
     <div class="nav-links">
       <a href="#demo">Demo</a>
+      <a href="#dashboard">Dashboard</a>
       <a href="#install">Install</a>
       <a href="organon-whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a>
       <a href="https://github.com/krmdel/organon" target="_blank" rel="noopener">GitHub</a>
@@ -71,6 +72,15 @@
         <button class="replay-btn" id="replay-btn" aria-label="Replay demo">↻ Replay</button>
       </div>
       <p class="demo-caption">Scripted replays of representative Organon sessions. Paper metadata in tab 1 is real, pulled live via the federated search MCP. Stats, DOIs, and publish flows in later tabs are realistic but illustrative.</p>
+    </section>
+
+    <section id="dashboard" class="section">
+      <h2 class="section-title">Same skills, visual workspace</h2>
+      <p class="section-lede">Prefer a GUI? Organon ships with an optional Next.js dashboard that puts a UI on top of every <code>sci-*</code> skill. Same artifacts, same memory, same research profile — wired into a single multi-route workspace covering literature, hypothesis, data, figures, and drafts for one research project.</p>
+      <div class="dashboard-wrapper">
+        <img class="dashboard-gif" src="assets/dashboard-demo.gif" alt="Organon Dashboard walkthrough — literature search, three-persona hypothesis council, data analysis with stats and plots, figures with annotation, and a three-pane manuscript editor." />
+      </div>
+      <p class="demo-caption">A single research thread carried across five routes: <code>/lit</code> federated literature search · <code>/hypothesis</code> three-persona council fanout · <code>/data</code> CSV ingest with stat picker and date-grouped plot history · <code>/figures</code> Gemini generate → mask edit → lock + auto-caption · <code>/draft</code> three-pane manuscript editor with per-section generate, citation pipeline, and KaTeX. Start with <code>npm run dev</code> in <code>projects/briefs/organon-dashboard</code>.</p>
     </section>
 
     <section id="overview" class="section">

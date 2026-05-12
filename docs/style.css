@@ -316,6 +316,23 @@ body::before {
   line-height: 1.5;
 }
 
+/* DASHBOARD */
+.dashboard-wrapper {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow), 0 0 60px rgba(232, 184, 76, 0.06);
+  background: var(--terminal-bg);
+}
+.dashboard-gif {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* TERMINAL */
 .terminal-wrapper {
   position: relative;
