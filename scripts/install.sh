@@ -492,6 +492,9 @@ fi
 
 echo "  Next steps:"
 echo "    1. Run ${BOLD}claude${NC} — it walks you through research profile setup"
+echo "       ${DIM}On first launch, Claude Code may ask you to approve this${NC}"
+echo "       ${DIM}project's hooks. Say YES — the SessionStart + UserPromptSubmit${NC}"
+echo "       ${DIM}hooks are what trigger /lets-go onboarding.${NC}"
 echo "    2. Add API keys to .env if any skills need them"
 echo "    3. Check for updates anytime: ${BOLD}bash scripts/update.sh --check${NC}"
 echo ""

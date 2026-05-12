@@ -2,7 +2,12 @@
 
 Guidance for Claude Code working in this repository. Organon is an agent-first Claude Code project template: personality in `context/SOUL.md`, user in `context/USER.md`, continuity in `context/memory/`, learnings in `context/learnings.md`, research context in `research_context/`, capabilities in `.claude/skills/`.
 
-Every session starts with `/lets-go` (auto-invoked by the heartbeat below). Everything else is a skill.
+Every session starts with `/lets-go`. Two hooks route the model there:
+
+1. `SessionStart` — runs `.claude/hooks_info/lets_go_gate.py SessionStart`. The gate probes `context/.lets-go-onboarded` and emits a state-aware heartbeat reminder (first-run vs. returning vs. stale-profile).
+2. `UserPromptSubmit` — re-runs the same gate as belt-and-suspenders. If the onboarding marker is still missing when a prompt arrives (e.g. the user dismissed the project hook-trust prompt on a fresh clone), the gate injects a hard reminder that defers the user's request until `/lets-go` has run.
+
+Everything else is a skill.
 
 ---
 
@@ -13,8 +18,8 @@ Run at the start of every session, in order:
 1. **Load identity** — read `context/SOUL.md`, `context/USER.md`, today's + yesterday's `context/memory/*.md` (pay attention to `### Open threads`), and the last 5–10 entries in `context/learnings.md`. If a user request references work older than 2 days, run `python3 scripts/memory-search.py --query "{topic}"` (supports `--skill`, `--project`, `--date-from/--date-to`).
 2. **Load research context** — read `research_context/research-profile.md` and `research_context/research-preferences.md` if they exist. Flag anything older than 30 days ("Your [file] is from [date]. Refresh, or keep going?").
 3. **Scan state** — `.claude/skills/` (available skills), `projects/briefs/*/brief.md` (active projects, report if any), cron status files (report enabled jobs + last run if the LaunchAgent `com.organon.{slug}.plist` exists; silent otherwise).
-4. **Sync check** — reconcile skills/MCPs/services against this file (see **Reconciliation**).
-5. **Run `/lets-go`** automatically — it handles first-run onboarding and returning-session recaps. Never prompt the user to type it.
+4. **Sync check** — reconcile skills/MCPs/services against this file (see **Reconciliation**). Verify `context/.lets-go-onboarded` is present; if missing, treat the session as first-run and invoke `/lets-go` before doing anything else.
+5. **Run `/lets-go`** automatically — it handles first-run onboarding and returning-session recaps. Never prompt the user to type it. If the onboarding gate fires a `[onboarding-gate]` reminder on a user prompt, that reminder is mandatory: defer the user's request until `/lets-go` completes.
 
 ### Daily Memory
 
