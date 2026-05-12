@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://organon.local/typography-presets.schema.json",
+  "title": "Organon Typography Presets",
+  "description": "Project-local typography preset registry. Lives at <projectPath>/.organon/typography-presets.json. Project entries override builtins on id collision; invalid entries are dropped at load time (never throw). Phase 25 (v1.2) — DR-8+ externalised registry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["presets"],
+  "properties": {
+    "presets": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Preset" }
+    }
+  },
+  "definitions": {
+    "Preset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "description", "pdfArgs", "docxArgs"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable identifier. A project entry with the same id as a builtin overrides it."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable label for the dropdown."
+        },
+        "description": {
+          "type": "string",
+          "description": "One-line description of the preset."
+        },
+        "pdfArgs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Argv elements appended to the pandoc PDF command."
+        },
+        "docxArgs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Argv elements appended to the pandoc DOCX command."
+        },
+        "css": {
+          "type": "string",
+          "description": "v1.3 (Phase 30, DR-8++) — applies to HTML export only via Marp `--theme <tmp.css>`. PDF / DOCX continue to use pdfArgs / docxArgs verbatim because pandoc xelatex (--include-in-header) and pandoc DOCX (--reference-doc) target different artifacts; deferred to v1.4."
+        }
+      }
+    }
+  }
+}

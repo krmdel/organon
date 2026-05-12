@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #141414;
+  --bg-soft: #1c1c1c;
+  --border: #2e2e2e;
+  --border-dim: #1f1f1f;
+  --text: #f0ece4;
+  --text-dim: #a8a39a;
+  --text-muted: #7a756d;
+  --accent: #8ab4f8;        /* Organon = scientific-blue rather than launch-orange */
+  --accent-dim: #4a6fa5;
+  --accent-faint: #10182a;
+  --danger: #e07964;
+  --good: #7ab87a;
+  /* Phase 37 (v1.4) — soft-warning palette for transient / rate-limited
+   * conditions that are not failures. Distinct from --danger so the UI
+   * can render a yellow info banner instead of a red error toast. */
+  --warn: #d4a96a;
+  --warn-faint: #2a200f;
+  /* Phase 65 (v2.2) — M4: dashboard density toggle. --font-scale anchors
+   * html font-size so every rem-based Tailwind class (paddings, gaps,
+   * widths, etc.) scales together with body text. Default bumped to 17px
+   * in v2.2.1 for readability — users who want the older size can pick S. */
+  --font-scale: 17px;
+}
+
+:root[data-density="compact"] {
+  --font-scale: 15px;
+}
+:root[data-density="comfortable"] {
+  --font-scale: 19px;
+}
+:root[data-density="large"] {
+  --font-scale: 21px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-bg-soft: var(--bg-soft);
+  --color-border: var(--border);
+  --color-border-dim: var(--border-dim);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-faint: var(--accent-faint);
+  --color-danger: var(--danger);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-warn-faint: var(--warn-faint);
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: var(--font-scale);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+.bracket-label::before {
+  content: "[ ";
+  color: var(--text-muted);
+}
+.bracket-label::after {
+  content: " ]";
+  color: var(--text-muted);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+/* Drawer slide-in for paper detail */
+.drawer-enter {
+  transform: translateX(100%);
+}
+.drawer-enter-active,
+.drawer-open {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+
+/* cmdk overrides — keep the palette dark and on-brand */
+[cmdk-root] {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+[cmdk-input] {
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  border: none;
+  padding: 16px;
+  font-size: var(--font-scale);
+  width: 100%;
+  border-bottom: 1px solid var(--border-dim);
+}
+[cmdk-list] {
+  max-height: 360px;
+  overflow: auto;
+  padding: 8px 0;
+}
+[cmdk-item] {
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+[cmdk-item][data-selected="true"] {
+  background: var(--bg-soft);
+}
+[cmdk-group-heading] {
+  padding: 12px 16px 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+[cmdk-empty] {
+  padding: 24px 16px;
+  color: var(--text-dim);
+  text-align: center;
+  font-size: 14px;
+}

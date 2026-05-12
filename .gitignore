@@ -7,6 +7,18 @@ context/memory/*
 !context/memory/.gitkeep
 context/.lets-go-onboarded
 projects/
+# The organon-dashboard is the curated reference Next.js app shipped
+# with this repo. Keep it tracked; everything else under projects/
+# stays excluded so per-user research outputs never leak.
+!projects/
+!projects/briefs/
+!projects/briefs/organon-dashboard/
+!projects/briefs/organon-dashboard/**
+projects/briefs/organon-dashboard/node_modules/
+projects/briefs/organon-dashboard/.next/
+projects/briefs/organon-dashboard/tsconfig.tsbuildinfo
+projects/briefs/organon-dashboard/.organon/
+projects/briefs/organon-dashboard/.organon-dashboard/
 research_context/*.md
 
 # Ingested research artifacts (created by /lets-go first-run)
