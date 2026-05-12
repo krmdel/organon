@@ -92,9 +92,6 @@ docs/*.pdf
 # Throwaway scratch files
 /test-arg.md
 
-# Local-only skills (kept on disk, excluded from public repo)
-.claude/skills/tool-substack/
-
 # Local review/notes files
 updates-susbtack-post.md
 updates-susbtack-post-2.md
