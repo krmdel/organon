@@ -192,14 +192,15 @@ function narrowFigure(a: Record<string, unknown>): FigureArtifact | null {
 }
 
 function narrowSectionDraft(a: Record<string, unknown>): SectionDraftArtifact | null {
-  if (typeof a.id !== "string") return null;
-  if (typeof a.manuscript_slug !== "string") return null;
+  // Minimal contract: section_id + section_type + content_md. The other
+  // fields (id, manuscript_slug, status, version, library_path) get
+  // filled by the generate-section route from existing section state, so
+  // the sci-writing skill is allowed to emit a slim artifact carrying
+  // only what it produces. Strict narrowing here would silently drop
+  // every skill-emitted draft and surface as "succeeded-no-artifact".
   if (typeof a.section_id !== "string") return null;
   if (typeof a.section_type !== "string") return null;
-  if (typeof a.status !== "string") return null;
   if (typeof a.content_md !== "string") return null;
-  if (typeof a.version !== "number") return null;
-  if (typeof a.library_path !== "string") return null;
   return a as unknown as SectionDraftArtifact;
 }
 

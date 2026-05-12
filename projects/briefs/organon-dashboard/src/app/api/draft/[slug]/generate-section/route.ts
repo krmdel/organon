@@ -266,16 +266,21 @@ export async function POST(request: Request, { params }: RouteContext) {
           const { artifacts, remainder } = extractArtifactsFromChunk(stdoutBuffer, evt.chunk);
           stdoutBuffer = remainder;
           for (const art of artifacts) {
+            // manuscript_slug is optional on skill-emitted artifacts —
+            // the URL already routes by slug, so we only require it to
+            // match if the skill chose to set it.
+            const slugMatches =
+              !art.manuscript_slug || art.manuscript_slug === slug;
             if (
               art._artifact === "section-draft" &&
-              art.manuscript_slug === slug &&
+              slugMatches &&
               art.section_id === body.section_id
             ) {
               anySectionArtifactParsed = true;
             }
             if (
               art._artifact === "section-draft" &&
-              art.manuscript_slug === slug &&
+              slugMatches &&
               art.section_id === body.section_id &&
               !persisted
             ) {
