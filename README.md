@@ -22,6 +22,29 @@ A single research day across six skills — literature search, hypothesis genera
 
 ---
 
+## Dashboard — same skills, visual workspace
+
+Prefer a GUI? Organon ships with an optional Next.js dashboard that puts a UI on top of every `sci-*` skill. Same artifacts, same memory, same research profile — wired into a single multi-route workspace.
+
+<p align="center">
+  <img src="docs/assets/dashboard-demo.gif" alt="Organon Dashboard — multi-route workspace covering literature, hypothesis, data, figures, and draft for one research project" width="100%">
+</p>
+
+Routes: `/lit` federated literature search · `/hypothesis` three-persona council fanout · `/data` CSV/XLSX ingest with stat picker and date-grouped plot history · `/figures` Gemini generate → FAL mask edit → lock + auto-caption · `/draft` three-pane manuscript editor with per-section generate, citation pipeline, and KaTeX rendering · `/tools` `/crons` `/runs` for skill catalog, scheduled jobs, and background-task history.
+
+Start the dashboard:
+
+```bash
+cd projects/briefs/organon-dashboard
+npm install
+npm run dev
+# open http://localhost:8769
+```
+
+Cmd+K opens cross-corpus search. The density toggle (S / M / L / XL in the top bar) scales the whole UI when you want more or less on screen.
+
+---
+
 ## Quickstart
 
 ```bash
