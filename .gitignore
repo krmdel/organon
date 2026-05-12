@@ -6,14 +6,16 @@
 context/memory/*
 !context/memory/.gitkeep
 context/.lets-go-onboarded
-projects/
 # The organon-dashboard is the curated reference Next.js app shipped
 # with this repo. Keep it tracked; everything else under projects/
-# stays excluded so per-user research outputs never leak.
-!projects/
+# stays excluded so per-user research outputs (and stray files like
+# projects/test-output.md) never leak. The pattern uses projects/* +
+# whitelist walk-down so direct children of projects/ stay ignored,
+# but the dashboard subtree is fully tracked.
+projects/*
 !projects/briefs/
+projects/briefs/*
 !projects/briefs/organon-dashboard/
-!projects/briefs/organon-dashboard/**
 projects/briefs/organon-dashboard/node_modules/
 projects/briefs/organon-dashboard/.next/
 projects/briefs/organon-dashboard/tsconfig.tsbuildinfo
