@@ -220,9 +220,18 @@ EFFECT_SIZE_PATTERN = re.compile(
 # fundamental fall-through. Now:
 #   - GOOD_MARKER accepts the locator suffix.
 #   - MULTI_MARKER accepts both ; (canonical pandoc) and , (sometimes seen).
-#   - BROAD_MARKER_RE is the fail-safe detector: ANY `[@\w` substring counts
-#     as a cite-like marker; if the strict extractor returns empty while
-#     BROAD matches, the gate refuses (Phase 9 unparseable-marker check).
+#   - BROAD_MARKER_RE is the fail-safe detector: a `[@...` opener whose bracket
+#     content (before the next `]` / newline) contains at least one ASCII letter
+#     counts as a cite-like marker. This deliberately catches non-letter-leading
+#     keys the strict extractor cannot parse — `[@2023key]`, `[@.broken]`,
+#     `[@_ref]` — while still EXCLUDING letter-free pseudocode like `arr[@0]`,
+#     `M[@:]`, `v[@1+2]` (the WG2 invariant: a `[@` in array/index code must not
+#     refuse a draft). The "contains a letter" test is the discriminator between a
+#     malformed citekey and code. If the strict extractor returns empty while
+#     BROAD matches, the gate refuses (Phase 9 unparseable-marker check). The
+#     detector MUST be broader than the extractor; an earlier letter-LEADING-only
+#     BROAD let digit/punctuation-leading keys fall silently into pure-expertise
+#     mode, skipping the whole contract.
 GOOD_MARKER = re.compile(
     r"\[@([A-Za-z][A-Za-z0-9_-]*[a-z]?)(?:\s*[,;:][^\]]*)?\]"
 )
@@ -231,7 +240,7 @@ MULTI_MARKER = re.compile(
     r"(?:\s*[,;]\s*@?[A-Za-z][A-Za-z0-9_-]*)*"
     r"(?:\s*[,;:][^\]]*)?)\]"
 )
-BROAD_MARKER_RE = re.compile(r"\[@[A-Za-z][A-Za-z0-9_-]*")
+BROAD_MARKER_RE = re.compile(r"\[@[^\]\n]*[A-Za-z]")
 KEY_INSIDE_BRACKET_RE = re.compile(r"@([A-Za-z][A-Za-z0-9_-]*[a-z]?)")
 MALFORMED_MARKER_PATTERNS = [
     (re.compile(r"@([A-Za-z][A-Za-z0-9_-]*)\]"), r"[@\1]"),  # missing [
@@ -284,8 +293,11 @@ def extract_used_keys(text: str) -> set[str]:
 def has_citation_markers(text: str) -> bool:
     """Phase 9: did the manuscript intend to cite anything?
 
-    Returns True if any `[@\\w...` substring appears, even if
-    `extract_used_keys` cannot parse it. Used by the unparseable-marker
+    Returns True if a `[@...` opener whose bracket content contains at least
+    one ASCII letter appears, even if `extract_used_keys` cannot parse it —
+    this deliberately includes non-letter-leading keys like `[@2023key]` /
+    `[@.broken]` / `[@_ref]`, while excluding letter-free pseudocode such as
+    `arr[@0]` / `M[@:]` (the WG2 invariant). Used by the unparseable-marker
     fail-closed check so a draft with mangled markers cannot fall into
     pure-expertise mode.
     """

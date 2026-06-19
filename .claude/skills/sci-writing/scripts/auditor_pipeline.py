@@ -42,8 +42,11 @@ from typing import Optional
 # or pseudo-syntax that verify_ops would NOT flag, so a draft could be
 # refused by the auditor pipeline yet pass verify_ops, or vice versa. Pin
 # the patterns together so the gate's preconditions and the verifier's
-# detection agree on what counts as a citation.
-_BROAD_MARKER_RE = re.compile(r"\[@[A-Za-z][A-Za-z0-9_-]*")
+# detection agree on what counts as a citation. MUST stay byte-identical to
+# verify_ops.BROAD_MARKER_RE: a `[@...` opener whose bracket content holds at
+# least one ASCII letter (catches malformed citekeys like `[@2023key]`;
+# excludes letter-free pseudocode like `arr[@0]`).
+_BROAD_MARKER_RE = re.compile(r"\[@[^\]\n]*[A-Za-z]")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
 VERIFY_OPS = PROJECT_ROOT / ".claude/skills/sci-writing/scripts/verify_ops.py"
