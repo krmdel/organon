@@ -199,6 +199,7 @@ Full guide: [docs/multi-client-guide.md](docs/multi-client-guide.md).
 | `viz-nano-banana` | "scientific illustration", "generate an image", "pathway", "cell diagram", "schematic", "infographic" |
 | `viz-excalidraw-diagram` | "excalidraw", "hand-drawn diagram", "sketch diagram" |
 | `viz-diagram-code` | "mermaid", "flowchart", "sequence diagram", "architecture diagram", "mind map", "timeline diagram" |
+| `viz-figure-mirror` | "match this figure style", "figure in the style of", "make my plot look like this paper", "publication figure from reference", "style transfer figure", "reproduce this figure with my data", "NeurIPS-quality version of this chart" |
 | `viz-presentation` | "presentation", "slide deck", "slides", "convert to slides", "prepare a talk" |
 
 ### Utility
@@ -255,6 +256,7 @@ Which `research_context/` files each skill reads.
 | `meta-wrap-up` | writes Activity Log only (via `scripts/profile-evolve.py`) | `## meta-wrap-up` |
 | `viz-nano-banana` | — | `## viz-nano-banana` |
 | `viz-diagram-code` | — | `## viz-diagram-code` |
+| `viz-figure-mirror` | — | `## viz-figure-mirror` |
 | `viz-excalidraw-diagram` | — | `## viz-excalidraw-diagram` |
 | `meta-skill-creator` | — | `## meta-skill-creator` |
 | `ops-cron` | — | `## ops-cron` |
