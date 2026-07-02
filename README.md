@@ -71,7 +71,7 @@ Your first session triggers `/lets-go`, an interactive onboarding that builds yo
 
 3. **Answer a few questions.** Organon asks about your primary field, active research questions, preferred statistical methods, writing style, and journal targets. Answers are stored in `research_context/research-profile.md`, where every downstream skill can read them.
 
-4. **Choose your skills.** All 31 skills are installed by default. You pick which ones to keep. The rest are removed cleanly.
+4. **Choose your skills.** All 32 skills are installed by default. You pick which ones to keep. The rest are removed cleanly.
 
 The result is a research profile that makes every skill output personalized: literature summaries highlight relevance to *your* work, data analysis defaults to *your* preferred tests and plot styles, writing matches *your* field conventions.
 
@@ -121,7 +121,7 @@ On top of the pipeline, a **PreToolUse hook** (`verify_gate.py`) intercepts ever
 
 **The auditor pipeline** works similarly for science communication. When you ask for a blog post or tutorial that cites research, a single `sci-auditor` agent runs verification and review in one pass, checking every claim against the upstream quotes sidecar.
 
-**Skill routing** is itself an agent coordination pattern. When you type a request, the orchestrator (CLAUDE.md) matches your phrasing against trigger patterns across 31 skills, prints a routing notice showing which skill was selected and why, then hands off execution. If a skill needs another skill mid-execution (e.g., `sci-communication` calling `tool-paperclip` for full-text citations, then `viz-nano-banana` for inline illustrations), it prints a second routing notice and delegates. The user sees the chain of decisions transparently.
+**Skill routing** is itself an agent coordination pattern. When you type a request, the orchestrator (CLAUDE.md) matches your phrasing against trigger patterns across 32 skills, prints a routing notice showing which skill was selected and why, then hands off execution. If a skill needs another skill mid-execution (e.g., `sci-communication` calling `tool-paperclip` for full-text citations, then `viz-nano-banana` for inline illustrations), it prints a second routing notice and delegates. The user sees the chain of decisions transparently.
 
 **Background agents** handle scheduled work. The cron dispatcher runs prompts on a schedule via headless `claude -p` invocations: paper alerts, citation tracking, data monitoring, weekly digests. Each job is a markdown file in `cron/jobs/` with a schedule expression and a prompt. The watchdog ensures the dispatcher stays alive.
 
@@ -155,6 +155,7 @@ The result is a system where no single agent does everything. Each agent is smal
 | Skill | What it does | API key needed |
 |-------|-------------|----------------|
 | `viz-diagram-code` | Mermaid diagrams: flowcharts, sequence, architecture, mind maps, timelines | — |
+| `viz-figure-mirror` | Match a reference paper figure's visual style onto your own data: editable matplotlib script + PNG + Type-42 PDF, gated by a mechanical quality floor and a Drawer/Reviewer loop | — |
 | `viz-presentation` | Slide decks from markdown via Marp: PDF, PPTX, HTML output | — |
 | `viz-excalidraw-diagram` | Hand-drawn style architecture and workflow diagrams | — |
 | `viz-nano-banana` | AI image generation in 6 styles including scientific illustration | `GEMINI_API_KEY` |

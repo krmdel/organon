@@ -198,6 +198,13 @@
       "dependencies": [],
       "mcp_servers": []
     },
+    "viz-figure-mirror": {
+      "category": "visual",
+      "description": "Match a reference paper figure's visual style onto your own data — editable matplotlib script + PNG + Type-42 PDF, gated by a mechanical quality floor and a Drawer/Reviewer loop",
+      "requires_services": [],
+      "dependencies": [],
+      "mcp_servers": []
+    },
     "viz-excalidraw-diagram": {
       "category": "visual",
       "description": "Architecture and workflow diagrams via Excalidraw",

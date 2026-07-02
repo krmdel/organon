@@ -181,6 +181,11 @@ Lessons from the user's review of `whitepaper-substack-v2.md` (the Organon Einst
 
 ## viz-diagram-code
 
+## viz-figure-mirror
+
+- A mechanical quality floor on matplotlib output is the highest-leverage, lowest-effort figure upgrade. Overlapping text and clipped/occluded labels are mechanically detectable from rendered bounding boxes (`fig.canvas.draw()` → `get_window_extent`). The floor checks text-vs-text overlap, text-vs-canvas clipping (tick labels at an axis extreme get a font-proportional allowance), and legend-vs-data occlusion (a legend over bars/markers/lines — conservative: legends over whitespace or placed outside the axes pass, and all legends are inspected, not just `ax.get_legend()`).
+- Drawer/Reviewer "Grounded Measurement" loop: every style choice traces to L1 (the reference image) or L2 (the aesthetic library); L3 taste is banned. The vision Reviewer is fresh-context (sees only reference + draft + library) so it cannot rationalise bad choices — but it judges *style*, not text, so the Drawer must re-derive titles/labels from the user's data and never copy the reference's wording.
+
 ## viz-excalidraw-diagram
 
 ## meta-skill-creator
