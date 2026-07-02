@@ -88,6 +88,17 @@ Missing sidecar with any `[@Key]` marker → CRITICAL (blocks save). Sidecar is 
 
 When `--quotes <path>` is passed to `verify_ops.py`, every draft sidecar claim is additionally required to **substring-match a candidate in the upstream `quotes.json`** for the same key. This catches writer invention that happens to quote text the writer pulled from memory rather than from a pre-generated researcher seed. The paper pipeline and auditor pipeline both auto-discover `{slug}.quotes.json` next to the draft and pass it automatically — you rarely need to think about this flag directly.
 
+### Guarantee boundary — quote fabrication (read before claiming "blocks fabricated quotes")
+
+Be precise about what the **mechanical gate blocks (CRITICAL)** versus **flags (MAJOR)**, so the public guarantee is honest:
+
+- **Always blocked (CRITICAL):** fabricated or mismatched *identifiers* (DOI / arXiv / PMID / URL existence, title-similarity, author-list, retraction, dual-id conflict); a missing sidecar; a quote that does not trace to the upstream `quotes.json` seed; and a quote that is **not found in the source whenever source text is reachable** — i.e. when `--source` is supplied, or the live abstract is fetched and the quote claims `source_confidence: abstract`, or open-access full text is fetched (`UNPAYWALL_EMAIL` / Paperclip).
+- **Flagged, not blocked (MAJOR):** a `full-text` quote against a *real* paper whose **full text cannot be fetched** (no `UNPAYWALL_EMAIL`, no Paperclip anchor, paywalled). The abstract legitimately may not contain a true full-text quote, so promoting this to CRITICAL would false-block honest drafts. The gate flags it MAJOR and defers to the human review / the `sci-auditor` LLM semantic pass.
+
+**So the defensible public claim is:** *"blocks fabricated identifiers, and blocks fabricated quotes whenever any source text (your `--source`, the live abstract, fetched full text, or the upstream seed) is reachable; flags (MAJOR) a quote it cannot verify because no source text could be fetched."* It is **not** "blocks every fabricated quote unconditionally."
+
+To tighten the boundary toward all-CRITICAL: supply `UNPAYWALL_EMAIL` (and/or Paperclip anchors) so full text is reachable on the common path, or pass `--source`. A future opt-in (`require_fulltext = strict`) could promote the unreachable-full-text case to CRITICAL for venues that demand it; until then the MAJOR is intentional, not an oversight. Surface the count of MAJOR quote findings at finalize time so a stack of unverifiable quotes is never silently overlooked.
+
 ## Title-Match Threshold
 
 Normalized ratio on titles that preserves whitespace and punctuation (NFKC-folded, smart-quote / em-dash / NBSP folded to ASCII, lowercased). The score returned is `min(char_level_SequenceMatcher, token_set_Jaccard)` — a failure on either dimension drags the score below the threshold, so "The Role of A in B" vs "The Role of A in B and C" no longer laundered through.

@@ -135,6 +135,45 @@ class TestWG2MarkerAlignment:
         assert auditor_re.search(text) is not None
         assert verify_re.search(text) is not None
 
+    def test_malformed_nonletter_leading_keys_are_detected(self):
+        # Regression: a citation marker whose key does not start with a letter —
+        # digit-leading, dot-leading, underscore-leading — must be DETECTED as
+        # cite-like by both fail-safe patterns even though the strict extractor
+        # cannot parse it. The earlier letter-leading-only BROAD pattern let these
+        # fall silently into pure-expertise mode, skipping the entire
+        # bib/sidecar/provenance contract (exit 0 instead of refuse).
+        from auditor_pipeline import _BROAD_MARKER_RE as auditor_re
+        from verify_ops import BROAD_MARKER_RE as verify_re
+
+        for text in (
+            "Per [@2023key], the result holds.",
+            "As shown in [@.broken] the claim stands.",
+            "See [@_ref] for details.",
+        ):
+            assert verify_re.search(text) is not None, text
+            assert bool(auditor_re.search(text)) is bool(verify_re.search(text)), text
+
+    def test_malformed_keys_refuse_not_pure_expertise(self):
+        # The detector firing while the strict extractor returns empty is exactly
+        # the Phase-9 unparseable-marker refusal precondition. Confirm the two
+        # functions disagree in the fail-closed direction for a malformed key.
+        from verify_ops import extract_used_keys, has_citation_markers
+
+        text = "Per [@2023key], the effect is large."
+        assert extract_used_keys(text) == set()       # strict extractor cannot parse it
+        assert has_citation_markers(text) is True      # but the gate still sees a marker
+        # => `not used_keys and has_citation_markers(text)` is True -> Phase 9 refuses.
+
+    def test_pseudocode_indices_still_do_not_refuse(self):
+        # The WG2 invariant must survive the broadening: letter-free `[@...]` index
+        # / pseudocode must NOT be seen as a citation (else code-bearing
+        # sci-communication drafts false-refuse).
+        from verify_ops import extract_used_keys, has_citation_markers
+
+        text = "Pseudocode: arr[@0] = 1; M[@:].sum(); v[@1+2]"
+        assert has_citation_markers(text) is False
+        assert extract_used_keys(text) == set()
+
 
 # ===========================================================================
 # DP3 — substack bypass ledger entries include md5
